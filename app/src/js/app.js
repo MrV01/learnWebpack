@@ -1,3 +1,7 @@
+//  IMPORTS/EXPORTS are processed by WebPack
+// Seems like dedicated  index,js file should be spawn soon ;-(()) 
+import '../styles/main.css';
+import '../styles/input-elements.css';
 import { secretButton, secretParagraph } from './dom-loader';
 
 var showSecret = false;

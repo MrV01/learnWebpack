@@ -4,7 +4,7 @@ var webpack = require('webpack');
 module.exports = {
     entry: './app/src/js/app.js',    // Core concept ENTRY = where to start
     output: {   // Core concept  Output = where to end
-        path: path.resolve(__dirname, 'build'),
+        path: path.resolve(__dirname, 'build'),  // __dirname  = pre-set current directory 
         filename: 'bundle.js',
         publicPath: '/build'
     },
