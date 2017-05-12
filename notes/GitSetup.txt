@@ -1,7 +1,5 @@
 
-HTTPS:
-
-https://github.com/MrV01/learnWebpack.git
+HTTPS:     https://github.com/MrV01/learnWebpack.git
 
 1. …or create a new repository on the command line
 
@@ -17,9 +15,7 @@ git remote add origin https://github.com/MrV01/learnWebpack.git
 git push -u origin master
 …or import code from another repository
 
-SSH:
-
-git@github.com:MrV01/learnWebpack.git
+SSH:   git@github.com:MrV01/learnWebpack.git
 
 …or create a new repository on the command line
 
@@ -29,20 +25,25 @@ git add README.md
 git commit -m "first commit"
 git remote add origin git@github.com:MrV01/learnWebpack.git
 git push -u origin master
+
 …or push an existing repository from the command line
 
 git remote add origin git@github.com:MrV01/learnWebpack.git
 git push -u origin master
 
+===========================================================
+
 https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
+
 $  clip < ~/.ssh/id_rsa.pub
 
-GENERATING NEW SSH KEY.
-1. Start bash   Then generate SSH key
+GENERATING NEW SSH KEY on work computer.
+
+1. Start bash          Then generate SSH key
 
 ssh-keygen -t rsa -b 4096 -C "VladV454@gmail.com"
 
-2.   ps -ef  | grep ssh
+2.   Make sure SSH-Agent is running:  ps -ef  | grep ssh
 
 # start the ssh-agent in the background  if not running
 eval $(ssh-agent -s)

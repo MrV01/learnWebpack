@@ -113,7 +113,8 @@ https://www.youtube.com/watch?v=GU-2T7k9NfI&t=326s
 
    a.  For CSS files to be "webpacked" we need  "load" PER-FILE basis.
         css-loader   - (loads and iterprets CSS from file )
-        style-loader -( loads CSS into DOM of the browser). How it is implemented , using the JS ".style" property  ???
+        style-loader -( loads CSS into DOM of the browser).
+                              BTW. How it is implemented , using the JS ".style" properties  ???
 
         npm install  css-loader style-loader --save-dev
 

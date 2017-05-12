@@ -1,39 +1,19 @@
 {
-  "name": "Webpack-ES6-basicsPart1_2",
+  "name": "webpack2-basics",
   "version": "1.0.0",
-  "babel": {
-    "presets": [
-      "es2015"
-    ]
-  },
-  "description": "Modified David Katz ES6 tutorial for beginners",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack app/src/js/app.js app/build/bundle.js",
-    "build:prod": "webpack app/src/js/app.js app/build/bundle.js -p",
-    "start": "webpack-dev-server --entry ./app/src/js/app.js --output-filename ./app/build/bundle.js",
-    "start:prod": "webpack-dev-server --entry ./app/src/js/app.js --output-filename ./app/build/bundle.js -p"
+    "build": "webpack-dev-server",
+    "build:prod": "webpack -p"
   },
-  "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
-    "autoprefixer-loader": "^3.2.0",
-    "babel-core": "^6.24.1",
-    "babel-loader": "^7.0.0",
-    "babel-polyfill": "^6.23.0",
-    "babel-preset-es2015": "^6.24.1",
-    "css-loader": "^0.28.1",
-    "expose-loader": "^0.7.3",
-    "extract-loader": "^0.1.0",
-    "file-loader": "^0.11.1",
-    "html-loader": "^0.4.5",
-    "node-sass": "^4.5.2",
-    "sass-loader": "^6.0.5",
-    "style-loader": "^0.17.0",
-    "url-loader": "^0.5.8",
-    "webpack": "^2.5.1",
-    "webpack-dev-server": "^2.4.5"
+    "css-loader": "^0.26.2",
+    "style-loader": "^0.13.2",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1"
   }
 }
