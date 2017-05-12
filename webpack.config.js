@@ -1,10 +1,10 @@
 var path = require('path');
-var webpack = require('webpack');
+var webpack = require('webpack'); // Import Plugins from Webpack Core
 
 module.exports = {
     entry: './app/src/js/app.js',    // Core concept ENTRY = where to start
     output: {   // Core concept  Output = where to end
-        path: path.resolve(__dirname, 'build'),  // __dirname  = pre-set current directory 
+        path: path.resolve(__dirname, 'build'),  // __dirname  = pre-set current directory
         filename: 'bundle.js',
         publicPath: '/build'
     },
@@ -21,7 +21,7 @@ module.exports = {
         ]
     },
     //  Webpack Plugins  array  ( Apply to the bundle)  What you should to do with prepared code
-    //   before gererating the bundle
+    //   before gererating the bundle. For instance generate stylesheets  to  the separate files !
     plugins: [
         new webpack.optimize.UglifyJsPlugin({
             // ...
