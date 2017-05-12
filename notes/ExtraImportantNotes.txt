@@ -1,0 +1,196 @@
+Essentials in JavaScript ES6.
+Notes from the author:   David Katz
+
+Now, if you need help or get stuck, feel free to ask questions in the forum.
+However, this course also has an accompanying github repository that contains all the relevant files that
+ you’ll need in order to help yourself!
+
+Here’s the link: https://github.com/15Dkatz/es6-tutorial/
+
+Break: Babel and Webpack
+Section 2, Lecture 13
+Babel and Webpack
+Here comes the first optional break. Stick around for an overview of what we just learned if you’d like.
+ Or just catch the quality humor that finishes this thing off!
+We just spent some time setting up babel and webpack so that we can code in es6.
+We also set up our configuration file for webpack and prepared a project that transforms es6 code into JavaScript. The details of these configuration files really matter, so here’s another link to the github repo for this course (https://github.com/15Dkatz/es6-tutorial).
+ Feel free to use this repo as a starting point for any es6 project you do in the future!
+Also, before we get to some actual coding, let’s overview the main points of babel and webpack.
+A transpiler reads code written in one language and produces the equivalent code in another.
+We need transpilers so that our pretty es6 code compiles into the dense JavaScript code that browser like.
+ Babel is one of the most popular es6 transpilers.
+Using webpack allows us to create an environment that transforms es6 code with babel.
+It combines multiple modules into one js file to reduce errors and resources on the client-side.
+Shipping with a development server, it gives us live code updating for free!
+Overall, we JavaScript developers have to appreciate awesome libraries like these.
+I mean, I could just babel on and on about these great features.
+And if you enjoyed that one, don’t worry, I webpacked plenty more jokes to come :)
+
+The Course Dependencies, and packages.
+
+ 1.   npm install webpack -g
+ 2.  npm install babel-core  babel-loader  webpack-dev-server  babel-preset-es2015 babel-polyfill   --save-dev
+
+
+https://github.com/15Dkatz/es6-tutorial/  has been unzipped locally at:
+  C:\Users\Vlad\Documents\PROG\HTML5\sites\es6\es6-tutorial-master-DavidKatz
+
+ =========================================================================
+// My personal notes .
+==========================================================================
+P.S.  C:\Users\Vlad\Documents\PROG\HTML5\sites\es6
+Software tools installation.
+
+1. Install Atom editor.
+    Setup plug-ins:
+
+2. Install  cmder    // Nice cmd.exe for Windows ( Like it!!!)
+3. Install nvm   // to manage nodejs versions.
+3. Install node 6.XXX
+4. Install Fenix .  // for sharing of the web-site look and feel in process of the develpment.
+      From own Desktop.  !!!!
+
+//  Nodejs modules for the development. Essential for   ES6 (aka es2015)  and "webpack"  development workflow.
+
+1. Webpack  install Globally is NOT recommended ( npm install webpack -g )
+
+What IS Webpack?
+ Webpack is a module bundler, it takes modules with dependencies and generates static assets representing those modules.
+ Loaders are pieces of code that can be injected in the middle of the compilation stream. Post loaders are called at the end of the stream.
+ webpack can only process JavaScript natively, but loaders are used to transform other resources into JavaScript. By doing so, every resource forms a module.
+
+ Install  webpack   locally into the  project directory:       npm install webpack --save-dev
+ Basic Scaffolding  of  webpack.config.js
+
+ var webpack = require('webpack'),
+    path = require('path');
+
+module.exports = {
+    debug: true,
+    entry: {
+        main: './index.js'
+    },
+    output: {
+        path: path.join(__dirname, 'dist'),
+        filename: '[name].js'
+    },
+    module: {
+        loaders: []
+    }
+};
+
+
+2.  babel ( installed as webpack loader )
+Install:
+   npm install babel-core  babel-loader  webpack-dev-server  babel-preset-es2015 babel-polyfill   --save-dev
+
+// Extra webpack loaders
+
+https://github.com/webpack-contrib/html-loader
+Export into HTML files:
+npm install file-loader extract-loader html-loader --save-dev
+
+{
+  test: /\.html$/,
+  use: [ 'file-loader?name=[path][name].[ext]!extract-loader!html-loader' ]
+}
+
+======================================================================
+Other sources:
+======================================================================
+// Webpack 2 tutorial by Mindspace
+https://www.youtube.com/watch?v=GU-2T7k9NfI&t=326s
+
+
+1. Part 1,2 were about Entry and Output mostly.
+    Config file is not required, command line parameters serv us well.
+
+2. Webpack CORE Concepts:
+      ENTRY  ->  Module   And  Loaders -> Plugins -> Output
+
+3.  Module-Loaders and Plugins   require to use webpack config file.
+     (  Babel, etc. See practical examples at the end. )
+
+   a.  For CSS files to be "webpacked" we need  "load" PER-FILE basis.
+        css-loader   - (loads and iterprets CSS from file )
+        style-loader -( loads CSS into DOM of the browser). How it is implemented , using the JS ".style" property  ???
+
+        npm install  css-loader style-loader --save-dev
+
+   b.  Plugins  are running on whole content ( multiple files ).
+        Example: webpack.optimize.UglifyJsPlugin.
+
+
+
+=====================================================================
+Practical examples of Webpack loaders
+//  https://julienrenaux.fr/2015/03/30/introduction-to-webpack-with-practical-examples/
+=====================================================================
+1.  Autoprefix CSS files.
+
+    npm install autoprefixer-loader --save-dev
+
+loaders: [{
+  test: /\.css$/,
+  loader: "css-loader!autoprefixer-loader"
+}]
+
+  You now can require any CSS file using require('./src/index.css');
+
+2. Sass compilation.    // Guess, it must be first, before the  CSS & Autoprefixer.
+
+    npm install css-loader sass-loader --save-dev
+
+loaders: [{
+   test: /\.scss$/,
+   loader: "css-loader!sass-loader"
+}]
+
+You now can require any Sass file using require('./src/index.scss');
+
+3.   The html-loader turn any html file into a module and require ANY IMAGE dependency along the way!
+
+      npm install html-loader --save-dev
+
+  loaders: [{
+      test: /\.html$/,
+      loader: "html-loader"
+  }]
+
+      You now can require any HTML files using require('./src/index.html');.
+       All    IMAGES   will also be treated as dependencies and therefore go through their specific stream of events
+
+4.  Encode image files:
+
+Sometimes you do not want to make HTTP requests to get assets.
+For example, what’s the point making HTTP requests to get tiny images when you can directly access them
+encoded (base64) ? The url-loader does just that. What you need to do is to determine the limit (in bytes)
+under which you want the encoded version of the file (if the file is bigger you will get the path to it).
+
+Installation:   npm install url-loader --save-dev
+
+Add the loader to the Webpack configuration:
+When images are under 5kb we want to get a base64 of them and when they are greater than 5kb
+we want to get the path to them (exactly as with the file-loader).
+
+loaders: [{
+  test: /\.(png|jpg|gif)$/,
+  loader: "url-loader?limit=5000&name=img/img-[hash:6].[ext]"
+}]
+
+
+6.  The expose-loader loader allow you to bind any module to the global scope.
+
+      Installation:
+
+     npm install expose-loader --save-dev
+
+     Add the loader to the Webpack configuration:
+     In this example we want lodash (Underscore.js decorator) to be exposed in the global scope as _.
+
+     loaders: [{
+          test: require.resolve("lodash"),
+          loader: 'expose?_'
+    }]
+
+    Now when requiring lodash (require('lodash');) will also expose it globally. It is necessary for popular modules such as angularJs, jQuery, underscore, moment or hammerjs.
