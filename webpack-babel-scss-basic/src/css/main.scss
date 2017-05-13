@@ -1,0 +1,16 @@
+/* SASS  */
+@import "colors";  /* SASS feature @import :  _ and .scss are not required, therefore omitted */
+
+#randomInt {
+  background-color: $main;
+  border: 1px solid black;
+  color: white;
+  padding: 5px;
+}
+
+#randomRange {
+  background-color: $secondary;
+  border: 1px solid black;
+  color: white;
+  padding: 5px;
+}
