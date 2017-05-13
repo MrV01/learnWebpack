@@ -38,7 +38,7 @@ module.exports = {
             use: extractPlugin.extract({
                 use: [   // extractPlugin config:  transpile first, ->  load to DOM, then -> extract to the preconfig file
                    'css-loader',
-                   'scss-loader'
+                   'sass-loader'
                      ]
             })
         }

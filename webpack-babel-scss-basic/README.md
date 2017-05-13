@@ -1,4 +1,4 @@
-npm
+NPM
 
 npm init -y
 npm install webpack webpack-dev-server --save-dev
