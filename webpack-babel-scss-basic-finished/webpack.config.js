@@ -69,7 +69,7 @@ module.exports = {
             }
         ]
     },
-    plugins: [
+    plugins: [   // Processed in the reverse order , as it is used to in Webpack
         extractPlugin,  // Dump CSS information from the objeect extractPlugin to  filename: which was set during
                                 // object construction ( see above)
         new HtmlWebpackPlugin({  //  outputs HTML into file(s)
